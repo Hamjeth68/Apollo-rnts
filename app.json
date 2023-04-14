@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "Apollo-rnts",
+    "slug": "Apollo-rnts",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
