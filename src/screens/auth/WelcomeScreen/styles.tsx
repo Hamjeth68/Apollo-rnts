@@ -17,54 +17,56 @@ export const styles = StyleSheet.create({
     marginLeft: wp(5),
     marginTop: hp(1),
   },
+
+  welcome: {
+    color: Colors.themeText2,
+    fontSize: RFValue(34),
+    fontWeight: "500",
+    marginLeft: wp(5),
+    marginTop: hp(30),
+  },
   content: {
     color: Colors.themeText2,
-    fontSize: RFValue(14),
-    width: wp(70),
     marginLeft: wp(5),
-    marginTop: hp(25),
-    marginBottom: hp(7),
-  },
-
-  mainButtonView: {
-    backgroundColor: Colors.theme,
-    width: wp(90),
-    height: hp(6),
-    alignSelf: "center",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  mainButtonText: {
-    color: Colors.themeText1,
-    fontSize: RFValue(15),
-    fontWeight: "bold",
-  },
-
-  createAccountContainer: {
-    marginLeft: wp(5),
-    marginTop: hp(4),
-  },
-  createAccountText: {
-    color: "#F2CD33",
-    fontSize: RFValue(15),
-    fontWeight: "500",
-    marginBottom: hp(7),
+    marginTop: hp(0.5),
+    marginBottom: hp(5),
+    fontSize: RFValue(13),
+    width: wp(60),
   },
 
   accountButtonView: {
     flexDirection: "row",
     marginLeft: wp(5),
     alignItems: "center",
-    backgroundColor: "rgba(0,0,0,0.3)",
+    backgroundColor: Colors.themeText2,
     width: wp(90),
     height: hp(6),
     paddingLeft: wp(15),
     marginTop: hp(1),
   },
+  buttonIcon: {
+    resizeMode: "contain",
+    width: wp(7),
+    height: hp(5),
+  },
   accountButtonText: {
-    color: Colors.themeText2,
+    color: Colors.themeText1,
     fontSize: RFValue(15),
-    fontWeight: "400",
+    fontWeight: "bold",
     marginLeft: wp(6),
+  },
+
+  footerText: {
+    color: Colors.themeText2,
+    fontSize: RFValue(13),
+    marginTop: hp(2.5),
+    marginLeft: wp(5),
+    marginBottom: hp(10),
+  },
+  signUpText: {
+    color: Colors.themeText2,
+    fontSize: RFValue(13),
+    fontWeight: "bold",
+    textDecorationLine: "underline",
   },
 });

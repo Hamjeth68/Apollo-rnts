@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  TouchableWithoutFeedback,
 } from "react-native";
 import React from "react";
 import { styles } from "./styles";
@@ -22,30 +23,46 @@ const WelcomeScreen = () => {
           source={require("../../../assets/images/Logo_tm.png")}
           style={styles.logo}
         />
+
+        <Text style={styles.welcome}>WELCOME</Text>
         <Text style={styles.content}>
-          Please activate the apollo mobile app with a supported streaming
-          device
+          Discover and display an endless curation of fine art
         </Text>
-        <TouchableOpacity style={styles.mainButtonView}>
-          <Text style={styles.mainButtonText}>Login with Email</Text>
+        <TouchableOpacity style={styles.accountButtonView}>
+          <Image
+            style={styles.buttonIcon}
+            source={require("../../../assets/images/google_iconx3.png")}
+          />
+          <Text style={styles.accountButtonText}>Sign in with Google</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.accountButtonView}>
+          <Image
+            style={styles.buttonIcon}
+            source={require("../../../assets/images/apple_iconx3.png")}
+          />
+          <Text style={styles.accountButtonText}>Sign in with Apple</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.accountButtonView}>
+          <Image
+            style={styles.buttonIcon}
+            source={require("../../../assets/images/microsoft_iconx3.png")}
+          />
+          <Text style={styles.accountButtonText}>Sign in with Microsoft</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.accountButtonView}>
+          <Image
+            style={styles.buttonIcon}
+            source={require("../../../assets/images/mail_iconx3.png")}
+          />
+          <Text style={styles.accountButtonText}>Sign in with Email</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.createAccountContainer}>
-          <Text style={styles.createAccountText}>Create new account</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.accountButtonView}>
-          <Ionicons name="logo-google" size={35} color={Colors.theme} />
-          <Text style={styles.accountButtonText}>Continue with Google</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.accountButtonView}>
-          <Ionicons name="logo-apple" size={35} color={Colors.theme} />
-          <Text style={styles.accountButtonText}>Continue with Apple</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.accountButtonView}>
-          <FontAwesome5 name="microsoft" size={35} color={Colors.theme} />
-          <Text style={styles.accountButtonText}>Continue with Microsoft</Text>
-        </TouchableOpacity>
+        <Text style={styles.footerText}>
+          Don't have an account ?{" "}
+          <TouchableWithoutFeedback>
+            <Text style={styles.signUpText}>Sign up Now</Text>
+          </TouchableWithoutFeedback>
+        </Text>
       </ScrollView>
     </ImageBackground>
   );
