@@ -51,7 +51,7 @@ export const styles = StyleSheet.create({
   },
   accountButtonText: {
     color: Colors.themeText1,
-    fontSize: RFValue(15),
+    fontSize: RFValue(14),
     fontWeight: "bold",
     marginLeft: wp(6),
   },
