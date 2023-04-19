@@ -12,10 +12,13 @@ import { styles } from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Colors from "@/src/utils/Colors";
+import { AuthStackScreenProps } from "@/models/Navigation-Modal";
 
 const backgroundImage = require("../../../assets/images/Splash1.png");
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({
+  navigation,
+}: AuthStackScreenProps<"WelcomeScreen">) => {
   return (
     <ImageBackground source={backgroundImage} style={styles.root}>
       <ScrollView>
