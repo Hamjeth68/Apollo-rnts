@@ -92,7 +92,11 @@ const WelcomeScreen = ({
 
         <Text style={styles.footerText}>
           Don't have an account ?{" "}
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            onPress={() => {
+              navigation.navigate("LoginScreen");
+            }}
+          >
             <Text style={styles.signUpText}>Sign up Now</Text>
           </TouchableWithoutFeedback>
         </Text>
