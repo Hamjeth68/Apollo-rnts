@@ -90,7 +90,7 @@ const OnboardingScreen = ({
               <TouchableOpacity
                 style={styles.leftButton}
                 onPress={() => {
-                  navigation.navigate("PreferencesScreen");
+                  navigation.navigate("HomeNewScreen");
                 }}
               >
                 <Text style={styles.leftButtonText}>Skip</Text>
