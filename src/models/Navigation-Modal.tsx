@@ -5,6 +5,7 @@ export type AuthStackParamList = {
   WelcomeScreen: undefined;
   OnboardingScreen: undefined;
   PreferencesScreen: undefined;
+  HomeNewScreen: undefined;
 };
 
 export type AuthStackScreenProps<Screen extends keyof AuthStackParamList> =
