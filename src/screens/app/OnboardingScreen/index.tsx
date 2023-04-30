@@ -57,6 +57,7 @@ const OnboardingScreen = ({
           <ScrollView
             horizontal
             pagingEnabled
+            scrollEnabled={false}
             showsHorizontalScrollIndicator={false}
             ref={scrollViewRef}
             onMomentumScrollEnd={(ev) => {
@@ -70,7 +71,7 @@ const OnboardingScreen = ({
                 <Image
                   key={index}
                   style={[{ width: Image_Width }, styles.image]}
-                  resizeMode="contain"
+                  resizeMode="stretch"
                   source={item.image}
                 />
                 <Text style={styles.onBodingTitle}>
@@ -110,7 +111,7 @@ const OnboardingScreen = ({
               <TouchableOpacity
                 style={styles.rightButton}
                 onPress={() => {
-                  navigation.navigate("PreferencesScreen");
+                  navigation.navigate("DiscoverBottomTab");
                 }}
               >
                 <Text style={styles.rightButtonText}>Got it!</Text>

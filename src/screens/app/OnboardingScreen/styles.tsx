@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
   onBodingContainer: {
     backgroundColor: Colors.theme,
   },
-  image: { height: hp(50) },
+  image: { height: hp(45) },
 
   onBodingTitle: {
     color: Colors.themeText1,
