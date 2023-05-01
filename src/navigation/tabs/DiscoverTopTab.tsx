@@ -7,6 +7,7 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { RFValue } from "react-native-responsive-fontsize";
+import NFTsScreen from "@/screens/app/NFTsScreen";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -53,7 +54,7 @@ const DiscoverTopTab = () => {
         options={{
           tabBarLabel: ({ focused }) => <Text style={styles.title}>NFTs</Text>,
         }}
-        component={DiscoverView}
+        component={NFTsScreen}
       />
       <Tab.Screen
         name="Artists"
