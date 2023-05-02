@@ -1,4 +1,10 @@
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StatusBar,
+} from "react-native";
 import React from "react";
 import { styles } from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -7,6 +13,7 @@ import DiscoverTopTab from "@/src/navigation/tabs/DiscoverTopTab";
 const DiscoverScreen = ({ navigation }: any) => {
   return (
     <View style={styles.root}>
+      <StatusBar barStyle={"dark-content"} />
       <View style={styles.searchContainer}>
         <TextInput
           placeholder="Search title, genres, media or artists"
