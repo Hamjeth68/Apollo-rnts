@@ -83,7 +83,7 @@ const DiscoverTopTab = () => {
 const styles = StyleSheet.create({
   title: {
     color: "#000",
-    fontSize: RFValue(11),
+    fontSize: RFValue(10),
     fontWeight: "bold",
   },
 });
