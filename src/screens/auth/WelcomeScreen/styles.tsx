@@ -40,20 +40,20 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: Colors.themeText2,
     width: wp(90),
-    height: hp(6),
+    height: hp(5),
     paddingLeft: wp(15),
     marginTop: hp(1),
   },
   buttonIcon: {
     resizeMode: "contain",
     width: wp(7),
-    height: hp(5),
+    height: hp(3),
   },
   accountButtonText: {
     color: Colors.themeText1,
-    fontSize: RFValue(14),
+    fontSize: RFValue(12),
     fontWeight: "bold",
-    marginLeft: wp(6),
+    marginLeft: wp(8),
   },
 
   footerText: {

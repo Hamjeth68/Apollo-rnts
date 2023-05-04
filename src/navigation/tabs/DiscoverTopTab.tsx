@@ -9,6 +9,7 @@ import {
 import { RFValue } from "react-native-responsive-fontsize";
 import NFTsScreen from "@/screens/app/NFTsScreen";
 import ArtistsScreen from "@/screens/app/ArtistsScreen";
+import GenresScreen from "@/screens/app/GenresScreen";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -73,7 +74,7 @@ const DiscoverTopTab = () => {
             <Text style={styles.title}>Genres</Text>
           ),
         }}
-        component={DiscoverView}
+        component={GenresScreen}
       />
     </Tab.Navigator>
   );
