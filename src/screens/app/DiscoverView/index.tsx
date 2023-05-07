@@ -27,7 +27,7 @@ const DiscoverView = ({ navigation }: any) => {
 
   return (
     <View style={styles.root}>
-      {true ? (
+      {loading ? (
         <DiscoverViewLoading />
       ) : (
         <ScrollView contentContainerStyle={styles.scrollView}>
