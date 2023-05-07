@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Platform } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import DiscoverTopTab from "./DiscoverTopTab";
@@ -25,8 +25,8 @@ const DiscoverBottomTab = () => {
         tabBarStyle: {
           backgroundColor: "#fff",
           borderTopColor: "#b3b3b3",
-          borderTopWidth: 3,
-          height: hp(10),
+          borderTopWidth: Platform.OS == "ios" ? 1.5 : 3,
+          height: Platform.OS == "ios" ? hp(12) : hp(10),
         },
         tabBarShowLabel: false,
       }}
@@ -37,7 +37,11 @@ const DiscoverBottomTab = () => {
         options={() => ({
           tabBarIcon: ({ color }) => (
             <View style={styles.tabIconView}>
-              <Ionicons name="search" size={35} color={color} />
+              <Ionicons
+                name="search"
+                size={Platform.OS == "ios" ? 25 : 35}
+                color={color}
+              />
               <Text style={[styles.tabIconText, { color: color }]}>
                 Discover
               </Text>
@@ -51,7 +55,11 @@ const DiscoverBottomTab = () => {
         options={() => ({
           tabBarIcon: ({ color }) => (
             <View style={styles.tabIconView}>
-              <Ionicons name="ios-heart" size={35} color={color} />
+              <Ionicons
+                name="ios-heart"
+                size={Platform.OS == "ios" ? 25 : 35}
+                color={color}
+              />
               <Text style={[styles.tabIconText, { color: color }]}>
                 Favorite
               </Text>
@@ -65,7 +73,11 @@ const DiscoverBottomTab = () => {
         options={() => ({
           tabBarIcon: ({ color }) => (
             <View style={styles.tabIconView}>
-              <Ionicons name="laptop-sharp" size={35} color={color} />
+              <Ionicons
+                name="laptop-sharp"
+                size={Platform.OS == "ios" ? 25 : 35}
+                color={color}
+              />
               <Text style={[styles.tabIconText, { color: color }]}>Scenes</Text>
             </View>
           ),
@@ -77,7 +89,11 @@ const DiscoverBottomTab = () => {
         options={() => ({
           tabBarIcon: ({ color }) => (
             <View style={styles.tabIconView}>
-              <Ionicons name="list" size={35} color={color} />
+              <Ionicons
+                name="list"
+                size={Platform.OS == "ios" ? 25 : 35}
+                color={color}
+              />
               <Text style={[styles.tabIconText, { color: color }]}>
                 Curation
               </Text>
@@ -91,7 +107,11 @@ const DiscoverBottomTab = () => {
         options={() => ({
           tabBarIcon: ({ color }) => (
             <View style={styles.tabIconView}>
-              <FontAwesome name="user-circle" size={35} color={color} />
+              <FontAwesome
+                name="user-circle"
+                size={Platform.OS == "ios" ? 25 : 35}
+                color={color}
+              />
               <Text style={[styles.tabIconText, { color: color }]}>
                 Profile
               </Text>
@@ -110,7 +130,7 @@ const styles = StyleSheet.create({
   tabIconText: {
     alignSelf: "center",
     textAlign: "center",
-    fontSize: RFValue(11),
+    fontSize: Platform.OS == "ios" ? RFValue(9) : RFValue(11),
     fontWeight: "500",
   },
 });
