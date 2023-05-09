@@ -17,7 +17,7 @@ import { styles } from "./styles";
 const FavoriteScreen = () => {
   const [viewArtworks, setViewArtworks] = useState(true);
   const [loading, setLoading] = useState(false);
-
+  //
   return (
     <View style={styles.root}>
       <MainNavigationBar title="Favorites" />
