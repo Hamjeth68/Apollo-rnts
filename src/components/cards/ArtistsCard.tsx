@@ -30,7 +30,7 @@ const ArtistsCard = (props: propsTypes) => {
 
 const styles = StyleSheet.create({
   root: {
-    backgroundColor: "#a2a2a244",
+    backgroundColor: Colors.background1,
     width: wp(22),
     marginRight: wp(1),
   },

@@ -29,7 +29,7 @@ const GenresCard = (props: propsTypes) => {
 
 const styles = StyleSheet.create({
   root: {
-    backgroundColor: "#a2a2a244",
+    backgroundColor: Colors.background1,
     width: wp(22),
     marginRight: wp(1),
     height: hp(18),
