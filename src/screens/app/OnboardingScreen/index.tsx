@@ -57,7 +57,7 @@ const OnboardingScreen = ({
           <ScrollView
             horizontal
             pagingEnabled
-            scrollEnabled={false}
+            // scrollEnabled={false}
             showsHorizontalScrollIndicator={false}
             ref={scrollViewRef}
             onMomentumScrollEnd={(ev) => {
@@ -71,7 +71,7 @@ const OnboardingScreen = ({
                 <Image
                   key={index}
                   style={[{ width: Image_Width }, styles.image]}
-                  resizeMode="stretch"
+                  resizeMode="cover"
                   source={item.image}
                 />
                 <Text style={styles.onBodingTitle}>
