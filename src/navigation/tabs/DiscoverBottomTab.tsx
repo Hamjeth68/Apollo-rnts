@@ -12,6 +12,7 @@ import { RFValue } from "react-native-responsive-fontsize";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import DiscoverScreen from "@/screens/app/DiscoverScreen";
+import FavoriteScreen from "@/screens/app/FavoriteScreen";
 
 const Tab = createBottomTabNavigator<DiscoverBottomTabParamList>();
 
@@ -50,8 +51,8 @@ const DiscoverBottomTab = () => {
         })}
       />
       <Tab.Screen
-        name="DiscoverTopTab2"
-        component={DiscoverTopTab}
+        name="FavoriteScreen"
+        component={FavoriteScreen}
         options={() => ({
           tabBarIcon: ({ color }) => (
             <View style={styles.tabIconView}>
