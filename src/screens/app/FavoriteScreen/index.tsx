@@ -14,13 +14,18 @@ import ArtworksCard from "@/components/cards/ArtworksCard";
 import Entypo from "react-native-vector-icons/Entypo";
 import { styles } from "./styles";
 
-const FavoriteScreen = () => {
+const FavoriteScreen = ({ navigation }: any) => {
   const [viewArtworks, setViewArtworks] = useState(true);
   const [loading, setLoading] = useState(false);
-  //
+
   return (
     <View style={styles.root}>
-      <MainNavigationBar title="Favorites" />
+      <MainNavigationBar
+        onPress={() => {
+          navigation.goBack();
+        }}
+        title="Favorites"
+      />
       <ScrollView contentContainerStyle={styles.scrollView}>
         {/*  */}
         <View style={styles.titleContainer}>

@@ -15,4 +15,6 @@ export type AuthStackScreenProps<Screen extends keyof AuthStackParamList> =
 export type DiscoverBottomTabParamList = {
   DiscoverScreen: undefined;
   FavoriteScreen: undefined;
+  ScenesScreen: undefined;
+  DiscoverView: undefined;
 };
