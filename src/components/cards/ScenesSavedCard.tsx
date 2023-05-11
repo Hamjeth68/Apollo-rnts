@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import {
   widthPercentageToDP as wp,
@@ -19,7 +19,7 @@ interface Props {
 const ScenesSavedCard = (props: Props) => {
   const { title, total, uri1, uri2, uri3 } = props;
   return (
-    <View style={styles.root}>
+    <TouchableOpacity style={styles.root}>
       <View style={styles.container}>
         <Text style={styles.title}>{title}</Text>
         <View style={styles.subTitleView}>
@@ -32,7 +32,7 @@ const ScenesSavedCard = (props: Props) => {
         <Image resizeMode="cover" source={{ uri: uri2 }} style={styles.image} />
         <Image resizeMode="cover" source={{ uri: uri3 }} style={styles.image} />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

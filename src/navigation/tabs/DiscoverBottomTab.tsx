@@ -14,6 +14,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import DiscoverScreen from "@/screens/app/DiscoverScreen";
 import FavoriteScreen from "@/screens/app/FavoriteScreen";
 import ScenesScreen from "@/screens/app/ScenesScreen";
+import ScenesStack from "../staks/ScenesStack";
 
 const Tab = createBottomTabNavigator<DiscoverBottomTabParamList>();
 
@@ -70,8 +71,8 @@ const DiscoverBottomTab = () => {
         })}
       />
       <Tab.Screen
-        name="ScenesScreen"
-        component={ScenesScreen}
+        name="ScenesStack"
+        component={ScenesStack}
         options={() => ({
           tabBarIcon: ({ color }) => (
             <View style={styles.tabIconView}>

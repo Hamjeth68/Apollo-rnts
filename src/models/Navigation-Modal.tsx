@@ -12,9 +12,17 @@ export type AuthStackParamList = {
 export type AuthStackScreenProps<Screen extends keyof AuthStackParamList> =
   NativeStackScreenProps<AuthStackParamList, Screen>;
 
+export type ScenesStackParamList = {
+  ScenesScreen: undefined;
+  SelectDisplayScreen: undefined;
+};
+
+export type ScenesStackProps<Screen extends keyof ScenesStackParamList> =
+  NativeStackScreenProps<ScenesStackParamList, Screen>;
+
 export type DiscoverBottomTabParamList = {
   DiscoverScreen: undefined;
   FavoriteScreen: undefined;
-  ScenesScreen: undefined;
   DiscoverView: undefined;
+  ScenesStack: undefined;
 };
