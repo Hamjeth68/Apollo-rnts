@@ -27,7 +27,12 @@ const ScenesSavedView = ({ navigation }: any) => {
         )}
       />
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          navigation.navigate("SelectDisplayScreen");
+        }}
+      >
         <Text style={styles.buttonText}>Create New Scenes</Text>
       </TouchableOpacity>
     </View>
