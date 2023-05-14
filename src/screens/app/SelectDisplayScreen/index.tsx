@@ -18,7 +18,12 @@ const SelectDisplayScreen = ({
       <Text style={styles.text1}>Which type of display group do you</Text>
       <Text style={styles.text2}>Want use for your new scene?</Text>
 
-      <TouchableOpacity style={styles.card1}>
+      <TouchableOpacity
+        style={styles.card1}
+        onPress={() => {
+          navigation.navigate("DisplayConfigurationScreen");
+        }}
+      >
         <View style={styles.leftContainer}>
           <Text style={styles.title}>Triptych</Text>
           <Text style={styles.description}>3 Portrait Displays</Text>

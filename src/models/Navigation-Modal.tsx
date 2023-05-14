@@ -15,6 +15,7 @@ export type AuthStackScreenProps<Screen extends keyof AuthStackParamList> =
 export type ScenesStackParamList = {
   ScenesScreen: undefined;
   SelectDisplayScreen: undefined;
+  DisplayConfigurationScreen: undefined;
 };
 
 export type ScenesStackProps<Screen extends keyof ScenesStackParamList> =
