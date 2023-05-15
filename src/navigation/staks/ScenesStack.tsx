@@ -5,6 +5,7 @@ import ScenesScreen from "@/screens/app/ScenesScreen";
 import { ScenesStackParamList } from "@/models/Navigation-Modal";
 import SelectDisplayScreen from "@/screens/app/SelectDisplayScreen";
 import DisplayConfigurationScreen from "@/screens/app/DisplayConfigurationScreen";
+import SelectArtworksScreen from "@/screens/app/SelectArtworks";
 
 const Stack = createNativeStackNavigator<ScenesStackParamList>();
 
@@ -22,6 +23,10 @@ const ScenesStack = () => {
       <Stack.Screen
         name="DisplayConfigurationScreen"
         component={DisplayConfigurationScreen}
+      />
+      <Stack.Screen
+        name="SelectArtworksScreen"
+        component={SelectArtworksScreen}
       />
     </Stack.Navigator>
   );

@@ -22,7 +22,12 @@ const DisplayConfigurationScreen = ({
       <Text style={styles.text2}>To use for the new scene</Text>
 
       <ScrollView contentContainerStyle={styles.list}>
-        <TouchableOpacity style={styles.card1}>
+        <TouchableOpacity
+          style={styles.card1}
+          onPress={() => {
+            navigation.navigate("SelectArtworksScreen");
+          }}
+        >
           <Text style={styles.title}>
             Display four individual pieces of artworks
           </Text>
