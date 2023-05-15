@@ -16,6 +16,7 @@ export type ScenesStackParamList = {
   ScenesScreen: undefined;
   SelectDisplayScreen: undefined;
   DisplayConfigurationScreen: undefined;
+  SelectArtworksScreen: undefined;
 };
 
 export type ScenesStackProps<Screen extends keyof ScenesStackParamList> =
