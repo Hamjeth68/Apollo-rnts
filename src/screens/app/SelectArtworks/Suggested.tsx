@@ -13,15 +13,33 @@ import {
 } from "react-native-responsive-screen";
 import Colors from "@/src/utils/Colors";
 import { RFValue } from "react-native-responsive-fontsize";
+import { useAppDispatch } from "@/src/redux/stateHooks";
+
+import { setFirstArtworks } from "@/src/redux/slices/UserSlice";
 
 const Suggested = () => {
+  const dispatch = useAppDispatch();
+
+  const handlePress = (url: string, index: number) => {
+    const body = {
+      id: index,
+      image: url,
+    };
+    dispatch(setFirstArtworks(body));
+  };
+
   return (
     <View style={styles.root}>
       <FlatList
         contentContainerStyle={styles.flatList}
         data={data}
         renderItem={({ item, index }) => (
-          <TouchableOpacity style={styles.imageContainer}>
+          <TouchableOpacity
+            onPress={() => {
+              handlePress(item, index);
+            }}
+            style={styles.imageContainer}
+          >
             <Image style={styles.images} source={{ uri: item }} />
           </TouchableOpacity>
         )}
