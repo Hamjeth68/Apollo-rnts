@@ -9,23 +9,41 @@ import Entypo from "react-native-vector-icons/Entypo";
 import ArtworksCard from "@/components/cards/ArtworksCard";
 import DiscoverViewLoading from "@/components/loading/DiscoverViewLoading";
 import ScenesSavedCard from "@/components/cards/ScenesSavedCard";
+import ScenesSavedViewLoading from "@/components/loading/ScenesSavedViewLoading";
 
 const ScenesSavedView = ({ navigation }: any) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("focus", () => {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
   return (
     <View style={styles.root}>
-      <FlatList
-        data={data}
-        contentContainerStyle={styles.flatList}
-        renderItem={({ item, index }) => (
-          <ScenesSavedCard
-            title={item.title}
-            total={item.total}
-            uri1={item.uri1}
-            uri2={item.uri2}
-            uri3={item.uri3}
-          />
-        )}
-      />
+      {loading ? (
+        <ScenesSavedViewLoading />
+      ) : (
+        <FlatList
+          data={data}
+          contentContainerStyle={styles.flatList}
+          renderItem={({ item, index }) => (
+            <ScenesSavedCard
+              title={item.title}
+              total={item.total}
+              uri1={item.uri1}
+              uri2={item.uri2}
+              uri3={item.uri3}
+            />
+          )}
+        />
+      )}
 
       <TouchableOpacity
         style={styles.button}

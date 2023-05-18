@@ -12,6 +12,9 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
   },
+  loading: {
+    marginTop: -hp(12),
+  },
   scrollView: { paddingBottom: hp(5) },
   titleContainer: {
     flexDirection: "row",

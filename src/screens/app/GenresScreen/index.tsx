@@ -1,22 +1,44 @@
 import { View, Text, FlatList } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styles } from "./styles";
 import ArtistsScreenCard from "@/components/cards/ArtistsScreenCard";
 import GenresScreenCard from "@/components/cards/GenresScreenCard";
+import GenresLoading from "@/components/loading/GenresLoading";
 
-const GenresScreen = () => {
+const GenresScreen = ({ navigation }: any) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("focus", () => {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
   return (
     <View style={styles.root}>
-      <FlatList
-        contentContainerStyle={styles.flatList}
-        numColumns={3}
-        nestedScrollEnabled
-        showsHorizontalScrollIndicator={false}
-        data={data2}
-        renderItem={({ item, index }) => (
-          <GenresScreenCard key={index} title={item.name} imageUri={item.uri} />
-        )}
-      />
+      {loading ? (
+        <GenresLoading />
+      ) : (
+        <FlatList
+          contentContainerStyle={styles.flatList}
+          numColumns={3}
+          nestedScrollEnabled
+          showsHorizontalScrollIndicator={false}
+          data={data2}
+          renderItem={({ item, index }) => (
+            <GenresScreenCard
+              key={index}
+              title={item.name}
+              imageUri={item.uri}
+            />
+          )}
+        />
+      )}
     </View>
   );
 };
