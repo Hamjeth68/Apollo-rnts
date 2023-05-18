@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainNavigationBar from "@/components/NavigationBars/MainNavigationBar";
 import ArtistsCard from "@/components/cards/ArtistsCard";
 import GenresCard from "@/components/cards/GenresCard";
@@ -13,10 +13,22 @@ import NewPlaylistCard from "@/components/cards/NewPlaylistCard";
 import ArtworksCard from "@/components/cards/ArtworksCard";
 import Entypo from "react-native-vector-icons/Entypo";
 import { styles } from "./styles";
+import DiscoverViewLoading from "@/components/loading/DiscoverViewLoading";
 
 const FavoriteScreen = ({ navigation }: any) => {
   const [viewArtworks, setViewArtworks] = useState(true);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("focus", () => {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    });
+
+    return unsubscribe;
+  }, [navigation]);
 
   return (
     <View style={styles.root}>
@@ -26,97 +38,108 @@ const FavoriteScreen = ({ navigation }: any) => {
         }}
         title="Favorites"
       />
-      <ScrollView contentContainerStyle={styles.scrollView}>
-        {/*  */}
-        <View style={styles.titleContainer}>
-          <Text style={styles.titleText}>Favorites artists</Text>
-          <TouchableOpacity style={styles.viewAllButton}>
-            <Text style={styles.viewAllButtonText}>View All</Text>
-          </TouchableOpacity>
+      {loading ? (
+        <View style={styles.loading}>
+          <DiscoverViewLoading />
         </View>
-        <FlatList
-          contentContainerStyle={styles.flatlist}
-          horizontal
-          nestedScrollEnabled
-          showsHorizontalScrollIndicator={false}
-          data={data1}
-          renderItem={({ item, index }) => (
-            <ArtistsCard key={index} name={item.name} imageUri={item.uri} />
-          )}
-        />
-        {/*  */}
-        <View style={styles.titleContainer}>
-          <Text style={styles.titleText}>Favorites genres</Text>
-          <TouchableOpacity style={styles.viewAllButton}>
-            <Text style={styles.viewAllButtonText}>View All</Text>
-          </TouchableOpacity>
-        </View>
-        <FlatList
-          contentContainerStyle={styles.flatlist}
-          horizontal
-          nestedScrollEnabled
-          showsHorizontalScrollIndicator={false}
-          data={data2}
-          renderItem={({ item, index }) => (
-            <GenresCard key={index} title={item.name} imageUri={item.uri} />
-          )}
-        />
-        {/*  */}
-        {/*  */}
-        <View style={styles.titleContainer}>
-          <Text style={styles.titleText}>Playlist for every mood</Text>
-          <TouchableOpacity style={styles.viewAllButton}>
-            <Text style={styles.viewAllButtonText}>View All</Text>
-          </TouchableOpacity>
-        </View>
-        <FlatList
-          contentContainerStyle={styles.flatlist}
-          horizontal
-          nestedScrollEnabled
-          showsHorizontalScrollIndicator={false}
-          data={data3}
-          renderItem={({ item, index }) => (
-            <NewPlaylistCard key={index} name={item.name} imageUri={item.uri} />
-          )}
-        />
-        {/*  */}
-        <View style={styles.titleContainer}>
-          <Text style={styles.titleText}>Trending Artworks</Text>
-          <TouchableOpacity
-            style={styles.upDownButton}
-            onPress={() => {
-              setViewArtworks(!viewArtworks);
-            }}
-          >
-            <Entypo
-              name={viewArtworks ? "chevron-down" : "chevron-up"}
-              size={30}
-              color={"#000"}
-            />
-          </TouchableOpacity>
-        </View>
-        {viewArtworks ? (
+      ) : (
+        <ScrollView contentContainerStyle={styles.scrollView}>
+          {/*  */}
+
+          <View style={styles.titleContainer}>
+            <Text style={styles.titleText}>Favorites artists</Text>
+            <TouchableOpacity style={styles.viewAllButton}>
+              <Text style={styles.viewAllButtonText}>View All</Text>
+            </TouchableOpacity>
+          </View>
           <FlatList
-            data={data4}
             contentContainerStyle={styles.flatlist}
+            horizontal
             nestedScrollEnabled
+            showsHorizontalScrollIndicator={false}
+            data={data1}
             renderItem={({ item, index }) => (
-              <ArtworksCard
-                type={index % 2 === 0 ? true : false}
-                uri1={item.uri1}
-                title1={item.title1}
-                uri2={item.uri2}
-                title2={item.title2}
-                uri22={item.uri22}
-                title22={item.title22}
-                uri3={item.uri3}
-                title3={item.title3}
+              <ArtistsCard key={index} name={item.name} imageUri={item.uri} />
+            )}
+          />
+          {/*  */}
+          <View style={styles.titleContainer}>
+            <Text style={styles.titleText}>Favorites genres</Text>
+            <TouchableOpacity style={styles.viewAllButton}>
+              <Text style={styles.viewAllButtonText}>View All</Text>
+            </TouchableOpacity>
+          </View>
+          <FlatList
+            contentContainerStyle={styles.flatlist}
+            horizontal
+            nestedScrollEnabled
+            showsHorizontalScrollIndicator={false}
+            data={data2}
+            renderItem={({ item, index }) => (
+              <GenresCard key={index} title={item.name} imageUri={item.uri} />
+            )}
+          />
+          {/*  */}
+          {/*  */}
+          <View style={styles.titleContainer}>
+            <Text style={styles.titleText}>Playlist for every mood</Text>
+            <TouchableOpacity style={styles.viewAllButton}>
+              <Text style={styles.viewAllButtonText}>View All</Text>
+            </TouchableOpacity>
+          </View>
+          <FlatList
+            contentContainerStyle={styles.flatlist}
+            horizontal
+            nestedScrollEnabled
+            showsHorizontalScrollIndicator={false}
+            data={data3}
+            renderItem={({ item, index }) => (
+              <NewPlaylistCard
+                key={index}
+                name={item.name}
+                imageUri={item.uri}
               />
             )}
           />
-        ) : null}
-        {/*  */}
-      </ScrollView>
+          {/*  */}
+          <View style={styles.titleContainer}>
+            <Text style={styles.titleText}>Trending Artworks</Text>
+            <TouchableOpacity
+              style={styles.upDownButton}
+              onPress={() => {
+                setViewArtworks(!viewArtworks);
+              }}
+            >
+              <Entypo
+                name={viewArtworks ? "chevron-down" : "chevron-up"}
+                size={30}
+                color={"#000"}
+              />
+            </TouchableOpacity>
+          </View>
+          {viewArtworks ? (
+            <FlatList
+              data={data4}
+              contentContainerStyle={styles.flatlist}
+              nestedScrollEnabled
+              renderItem={({ item, index }) => (
+                <ArtworksCard
+                  type={index % 2 === 0 ? true : false}
+                  uri1={item.uri1}
+                  title1={item.title1}
+                  uri2={item.uri2}
+                  title2={item.title2}
+                  uri22={item.uri22}
+                  title22={item.title22}
+                  uri3={item.uri3}
+                  title3={item.title3}
+                />
+              )}
+            />
+          ) : null}
+          {/*  */}
+        </ScrollView>
+      )}
     </View>
   );
 };

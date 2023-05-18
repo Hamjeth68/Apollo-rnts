@@ -1,21 +1,43 @@
 import { View, Text, FlatList } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { styles } from "./styles";
 import ArtistsScreenCard from "@/components/cards/ArtistsScreenCard";
+import ArtistsLoading from "@/components/loading/ArtistsLoading";
 
-const ArtistsScreen = () => {
+const ArtistsScreen = ({ navigation }: any) => {
+  const [loading, setLoading] = React.useState(true);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("focus", () => {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
   return (
     <View style={styles.root}>
-      <FlatList
-        contentContainerStyle={styles.flatList}
-        numColumns={3}
-        nestedScrollEnabled
-        showsHorizontalScrollIndicator={false}
-        data={data1}
-        renderItem={({ item, index }) => (
-          <ArtistsScreenCard key={index} name={item.name} imageUri={item.uri} />
-        )}
-      />
+      {loading ? (
+        <ArtistsLoading />
+      ) : (
+        <FlatList
+          contentContainerStyle={styles.flatList}
+          numColumns={3}
+          nestedScrollEnabled
+          showsHorizontalScrollIndicator={false}
+          data={data1}
+          renderItem={({ item, index }) => (
+            <ArtistsScreenCard
+              key={index}
+              name={item.name}
+              imageUri={item.uri}
+            />
+          )}
+        />
+      )}
     </View>
   );
 };
