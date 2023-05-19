@@ -5,7 +5,7 @@ import {
   ImageBackground,
   Button,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { ScenesStackProps } from "@/models/Navigation-Modal";
 import MainNavigationBar from "@/components/NavigationBars/MainNavigationBar";
 import { styles } from "./styles";
@@ -15,11 +15,13 @@ import { Image } from "react-native";
 import SelectArtworksTopTab from "@/src/navigation/tabs/SelectArtworksTopTab";
 import { useAppSelector } from "@/src/redux/stateHooks";
 import { selectFirstArtworks } from "@/src/redux/slices/UserSlice";
+import EditSelectedArtworks from "./EditSelectedArtworks";
 
 const SelectArtworksScreen = ({
   navigation,
 }: ScenesStackProps<"SelectArtworksScreen">) => {
   const FirstArtworks = useAppSelector<any>(selectFirstArtworks);
+  const [save, setSave] = useState(false);
   return (
     <View style={styles.root}>
       <TouchableOpacity
@@ -59,7 +61,27 @@ const SelectArtworksScreen = ({
             <Text style={styles.imageNumber}>4</Text>
           </ImageBackground>
         </View>
-        <Text style={styles.title}>Select artworks for the first display</Text>
+        {save ? (
+          <Text style={styles.title}>Scene is saved with the name below</Text>
+        ) : FirstArtworks.length == 4 ? (
+          <View style={styles.bottomButtonView}>
+            <TouchableOpacity style={styles.castButton}>
+              <Text style={styles.castButtonText}>Cast</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                setSave(true);
+              }}
+              style={styles.saveButton}
+            >
+              <Text style={styles.saveButtonText}>Save</Text>
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <Text style={styles.title}>
+            Select artworks for the first display
+          </Text>
+        )}
       </View>
       <View style={styles.divider} />
 
@@ -69,7 +91,7 @@ const SelectArtworksScreen = ({
           console.log(FirstArtworks);
         }}
       /> */}
-      <SelectArtworksTopTab />
+      {save ? <EditSelectedArtworks /> : <SelectArtworksTopTab />}
     </View>
   );
 };

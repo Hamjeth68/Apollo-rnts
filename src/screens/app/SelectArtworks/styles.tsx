@@ -50,4 +50,36 @@ export const styles = StyleSheet.create({
     marginTop: hp(1.5),
     fontWeight: "600",
   },
+
+  bottomButtonView: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    width: wp("70"),
+    marginTop: hp("2"),
+  },
+  castButton: {
+    backgroundColor: Colors.yellow,
+    width: wp("30"),
+    alignItems: "center",
+    justifyContent: "center",
+    height: hp("3.5"),
+    marginLeft: wp("5"),
+  },
+  castButtonText: {
+    color: Colors.themeText1,
+    fontWeight: "600",
+  },
+
+  saveButton: {
+    width: wp("30"),
+    alignItems: "center",
+    justifyContent: "center",
+    height: hp("3.5"),
+    borderColor: Colors.themeText1,
+    borderWidth: 1,
+  },
+  saveButtonText: {
+    color: Colors.themeText1,
+    fontWeight: "600",
+  },
 });

@@ -87,7 +87,7 @@ const SelectArtworksTopTab = () => {
 const styles = StyleSheet.create({
   title: {
     color: "#000",
-    fontSize: RFValue(10),
+    fontSize: RFValue(11),
     fontWeight: "bold",
   },
 });
