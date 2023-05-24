@@ -27,4 +27,5 @@ export type DiscoverBottomTabParamList = {
   FavoriteScreen: undefined;
   DiscoverView: undefined;
   ScenesStack: undefined;
+  CurationsTabScreen: undefined;
 };
