@@ -4,7 +4,7 @@ import { styles } from "./styles";
 import CurationsCard from "@/components/cards/CurationsCard";
 import { FlatList } from "react-native";
 
-const FavoriteCurationsScreen = () => {
+const MyCurationsScreen = () => {
   return (
     <View style={styles.root}>
       <FlatList
@@ -27,7 +27,11 @@ const data = [
     scenes: 3,
     cardType: 1,
   },
-
+  {
+    title: "David Yarrow Curations",
+    scenes: 6,
+    cardType: 2,
+  },
   {
     title: "New Curations",
     scenes: 10,
@@ -38,6 +42,11 @@ const data = [
     scenes: 8,
     cardType: 4,
   },
+  {
+    title: "David Yarrow Curations",
+    scenes: 8,
+    cardType: 5,
+  },
 ];
 
-export default FavoriteCurationsScreen;
+export default MyCurationsScreen;
