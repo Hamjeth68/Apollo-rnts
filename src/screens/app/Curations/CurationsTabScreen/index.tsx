@@ -15,6 +15,7 @@ import MainNavigationBar from "@/components/NavigationBars/MainNavigationBar";
 import FavoriteCurationsScreen from "../FavoriteCurationsScreen";
 import Colors from "@/src/utils/Colors";
 import { styles } from "./styles";
+import MyCurationsScreen from "../MyCurationsScreen";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -70,7 +71,7 @@ const CurationsTabScreen = ({ navigation }: any) => {
               <Text style={styles.title}>My Curations</Text>
             ),
           }}
-          component={FavoriteCurationsScreen}
+          component={MyCurationsScreen}
         />
       </Tab.Navigator>
     </View>
