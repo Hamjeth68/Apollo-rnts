@@ -9,11 +9,12 @@ const FavoriteCurationsScreen = () => {
     <View style={styles.root}>
       <FlatList
         data={data}
-        renderItem={({ item }) => (
+        renderItem={({ item, index }) => (
           <CurationsCard
             cardType={item.cardType}
             scenes={item.scenes}
             title={item.title}
+            favorite={index == 2 ? false : true}
           />
         )}
       />

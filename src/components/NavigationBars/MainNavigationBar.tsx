@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     width: wp(75),
     textAlign: "center",
     fontWeight: "bold",
-    fontSize: RFValue(15),
+    fontSize: RFValue(20),
   },
 });
 
