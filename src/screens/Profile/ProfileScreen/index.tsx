@@ -68,6 +68,9 @@ const ProfileScreen = ({ navigation }: any) => {
 
           <TouchableOpacity
             style={[styles.profileButton, { borderWidth: 0.5 }]}
+            onPress={() => {
+              navigation.navigate("ProfileManagementScreen");
+            }}
           >
             <FontAwesome5 name="user-cog" size={25} color={"#000"} />
             <Text style={styles.profileButtonTitle}>Profile Manager</Text>

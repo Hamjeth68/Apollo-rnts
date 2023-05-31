@@ -33,4 +33,5 @@ export type DiscoverBottomTabParamList = {
 
 export type ProfileStackParamList = {
   ProfileScreen: undefined;
+  ProfileManagementScreen: undefined;
 };
