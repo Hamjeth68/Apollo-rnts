@@ -16,6 +16,7 @@ import FavoriteScreen from "@/screens/app/FavoriteScreen";
 import ScenesScreen from "@/screens/app/ScenesScreen";
 import ScenesStack from "../staks/ScenesStack";
 import CurationsTabScreen from "@/screens/app/Curations/CurationsTabScreen";
+import ProfileStack from "../staks/ProfileStack";
 
 const Tab = createBottomTabNavigator<DiscoverBottomTabParamList>();
 
@@ -106,8 +107,8 @@ const DiscoverBottomTab = () => {
         })}
       />
       <Tab.Screen
-        name="DiscoverTopTab5"
-        component={DiscoverTopTab}
+        name="ProfileStack"
+        component={ProfileStack}
         options={() => ({
           tabBarIcon: ({ color }) => (
             <View style={styles.tabIconView}>

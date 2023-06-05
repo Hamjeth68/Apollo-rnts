@@ -28,4 +28,11 @@ export type DiscoverBottomTabParamList = {
   DiscoverView: undefined;
   ScenesStack: undefined;
   CurationsTabScreen: undefined;
+  ProfileStack: undefined;
+};
+
+export type ProfileStackParamList = {
+  ProfileScreen: undefined;
+  ProfileManagementScreen: undefined;
+  ProfileMenuScreen: undefined;
 };

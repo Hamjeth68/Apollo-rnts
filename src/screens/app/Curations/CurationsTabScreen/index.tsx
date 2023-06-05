@@ -33,7 +33,7 @@ const CurationsTabScreen = ({ navigation }: any) => {
         screenOptions={{
           tabBarActiveTintColor: "#181818",
           tabBarInactiveTintColor: "#000",
-          swipeEnabled: false,
+          //  swipeEnabled: false,
 
           tabBarIndicatorStyle: {
             backgroundColor: "#F2CD33",

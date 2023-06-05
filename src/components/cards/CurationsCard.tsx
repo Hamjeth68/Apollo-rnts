@@ -17,7 +17,7 @@ interface propsTypes {
   cardType: number;
 }
 const CurationsCard = (props: propsTypes) => {
-  const { title, cardType, scenes } = props;
+  const { title, cardType, scenes, favorite } = props;
   return (
     <TouchableOpacity style={styles.root}>
       {cardType == 1 ? (
@@ -134,9 +134,27 @@ const CurationsCard = (props: propsTypes) => {
           <Text style={styles.count}>{scenes}</Text>
           <Text style={styles.scenes}>Scenes</Text>
         </View>
-        <View style={styles.favoriteView}>
-          <Ionicons name="heart" size={20} color={"#F2CD33"} />
-          <Text style={styles.favorite}>Favorite</Text>
+        <View
+          style={[
+            styles.favoriteView,
+            {
+              borderColor: favorite ? "#F2CD33" : "#CACACA",
+            },
+          ]}
+        >
+          <Ionicons
+            name="heart"
+            size={20}
+            color={favorite ? "#F2CD33" : "#CACACA"}
+          />
+          <Text
+            style={[
+              styles.favorite,
+              { color: favorite ? "#F2CD33" : "#CACACA" },
+            ]}
+          >
+            Favorite
+          </Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -201,14 +219,14 @@ const styles = StyleSheet.create({
     height: hp(3),
     paddingLeft: wp(2),
     paddingRight: wp(2),
-    borderColor: "#F2CD33",
+
     borderWidth: 1,
     borderRadius: 50,
     marginTop: hp(1),
   },
   favorite: {
     fontSize: RFValue(11),
-    color: "#F2CD33",
+
     fontWeight: "600",
   },
 
