@@ -29,7 +29,14 @@ const ProfileManagementScreen = ({ navigation }: any) => {
         <FlatList
           horizontal
           data={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
-          renderItem={({ item }) => <ProfileCard isActive={item == 1} />}
+          renderItem={({ item }) => (
+            <ProfileCard
+              isActive={item == 1}
+              onPress={() => {
+                navigation.navigate("ProfileMenuScreen");
+              }}
+            />
+          )}
           contentContainerStyle={styles.profileCardView}
           showsHorizontalScrollIndicator={false}
         />
@@ -59,7 +66,7 @@ const ProfileManagementScreen = ({ navigation }: any) => {
             <Text style={styles.profileButtonTitleRight}>Edit</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
+          <View
             style={[
               styles.profileButton,
               { borderTopWidth: 0.5, borderBottomWidth: 1 },
@@ -74,7 +81,7 @@ const ProfileManagementScreen = ({ navigation }: any) => {
               value={isEnabled}
               style={styles.switchStyle}
             />
-          </TouchableOpacity>
+          </View>
         </View>
 
         <TouchableOpacity style={styles.logoutButton}>

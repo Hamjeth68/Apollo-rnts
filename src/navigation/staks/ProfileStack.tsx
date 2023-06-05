@@ -5,6 +5,7 @@ import { ProfileStackParamList } from "@/models/Navigation-Modal";
 
 import ProfileScreen from "@/screens/Profile/ProfileScreen";
 import ProfileManagementScreen from "@/screens/Profile/ProfileManagementScreen";
+import ProfileMenuScreen from "@/screens/Profile/ProfileMenuScreen";
 
 const Stack = createNativeStackNavigator<ProfileStackParamList>();
 
@@ -19,6 +20,7 @@ const ProfileStack = () => {
         name="ProfileManagementScreen"
         component={ProfileManagementScreen}
       />
+      <Stack.Screen name="ProfileMenuScreen" component={ProfileMenuScreen} />
     </Stack.Navigator>
   );
 };

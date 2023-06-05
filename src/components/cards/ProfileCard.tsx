@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  GestureResponderEvent,
+} from "react-native";
 import React from "react";
 import {
   widthPercentageToDP as wp,
@@ -9,12 +16,13 @@ import { RFValue } from "react-native-responsive-fontsize";
 
 interface propsType {
   isActive?: boolean;
+  onPress?: ((event: GestureResponderEvent) => void) | undefined;
 }
 
 const ProfileCard = (props: propsType) => {
-  const { isActive } = props;
+  const { isActive, onPress } = props;
   return (
-    <TouchableOpacity style={styles.root}>
+    <TouchableOpacity style={styles.root} onPress={onPress}>
       <Image
         style={styles.profileImage}
         source={{
